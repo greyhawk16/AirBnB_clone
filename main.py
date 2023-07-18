@@ -1,23 +1,17 @@
-class Human:
+from typing import Any
+
+
+class Dog:
     def __init__(self, name):
         self.name = name
 
-    def say_hi(self):
-        print(f"hello {self.name}")
+    def __str__(self) -> str:
+        return f"Name: {self.name}"
+
+    def __getattribute__(self, __name: str) -> Any:
+        print(f"They want to get {__name}")
+        return 'Hello'
 
 
-class Player(Human):
-    def __init__(self, name, xp):
-        super().__init__(name)
-        self.xp = xp
-
-
-class Fan(Human):
-    def __init__(self, name, fav_team):
-        super().__init__(name)
-        self.fav_team = fav_team
-
-
-p1 = Player('DDG', 100)
-p2 = Fan('SSBN', 'USN')
-p2.say_hi()
+ddh = Dog("DDH")
+print(ddh.name)
