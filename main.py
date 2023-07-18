@@ -1,11 +1,23 @@
-class Player:
-    def __init__(self, name, xp):
+class Human:
+    def __init__(self, name):
         self.name = name
-        self.xp = xp
 
     def say_hi(self):
-        return f'hello, {self.name}'
+        print(f"hello {self.name}")
 
 
-p1 = Player('DDG', 16)
-print(p1.say_hi())
+class Player(Human):
+    def __init__(self, name, xp):
+        super().__init__(name)
+        self.xp = xp
+
+
+class Fan(Human):
+    def __init__(self, name, fav_team):
+        super().__init__(name)
+        self.fav_team = fav_team
+
+
+p1 = Player('DDG', 100)
+p2 = Fan('SSBN', 'USN')
+p2.say_hi()
