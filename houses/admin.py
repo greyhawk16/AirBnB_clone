@@ -6,4 +6,14 @@ from .models import House
 
 @admin.register(House)
 class HouseAdmin(admin.ModelAdmin):
-    pass
+    list_display = (
+        "name",
+        'prices_per_night',
+        'address',
+        'pets_allowed'
+    )
+    list_filter = (
+        'prices_per_night',
+        'pets_allowed'
+    )
+    search_fields = ('address',)
