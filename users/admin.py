@@ -9,7 +9,16 @@ from .models import User
 class CustomUserAdmin(UserAdmin):
     fieldsets = (
         ('Profile', {
-            'fields': ('username', 'password', 'name', 'email', 'is_host'),
+            'fields': ('avatar',
+                       'username',
+                       'password',
+                       'name',
+                       'email',
+                       'is_host',
+                       'gender',
+                       'language',
+                       'currency',
+                       ),
             'classes': ("wide",),
         },
         ),
