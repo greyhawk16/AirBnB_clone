@@ -13,6 +13,9 @@ class ExperienceAdmin(admin.ModelAdmin):
         "price",
         'created_at',
     )
+    list_filter = (
+        'category',
+    )
 
 
 @admin.register(Perk)
