@@ -7,11 +7,25 @@ from common.models import CommonModel
 class Review(CommonModel):
     """Review for room or experiences"""
     user = models.ForeignKey(
-        'users.User', on_delete=models.SET_NULL, null=True,)
-    room = models.ForeignKey('rooms.Room', null=True,
-                             blank=True, on_delete=models.CASCADE)
+        'users.User',
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='reviews',
+    )
+    room = models.ForeignKey(
+        'rooms.Room',
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name='reviews',
+    )
     experience = models.ForeignKey(
-        'experiences.Experience', null=True, blank=True, on_delete=models.CASCADE)
+        'experiences.Experience',
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name='reviews',
+    )
     payload = models.TextField()
     rating = models.PositiveIntegerField()
 
